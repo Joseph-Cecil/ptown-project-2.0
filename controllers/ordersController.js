@@ -23,12 +23,14 @@ const createNewOrder = asyncHandler(async (req, res) => {
     const orderObject = {order, price, location, name, areaName, houseNum, phoneNum};
         
     const ordertoSave = await Order.create(orderObject)
-
+console.log(ordertoSave);
     if(ordertoSave){
         return res.status(200).json({message: `Order ${orderObject.order} has been saved successfully`})
     }else{
         return res.status(400).json({message: "Order not saved"})
     }
+
+    
 
 });
 
